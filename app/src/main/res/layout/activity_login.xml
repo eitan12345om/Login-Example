@@ -35,27 +35,40 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/first_name"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_first_name"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/last_name"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_last_name"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/first_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_first_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/last_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_last_name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
@@ -82,8 +95,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/spinner"
-                    android:layout_weight="1"
-                    android:prompt="@string/month" />
+                    android:layout_weight="1" />
 
                 <Spinner
                     android:layout_width="0dp"
@@ -149,12 +161,13 @@
 
             <Button
                 android:id="@+id/email_sign_in_button"
-                style="@android:style/TextAppearance.Material.Small"
-                android:layout_width="match_parent"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_gravity="center" />
 
         </LinearLayout>
     </ScrollView>
