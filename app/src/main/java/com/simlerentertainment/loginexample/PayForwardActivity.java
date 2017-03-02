@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class PayForwardActivity extends AppCompatActivity {
 
+    private TextView mID_TextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +24,8 @@ public class PayForwardActivity extends AppCompatActivity {
         String name = intent.getStringExtra("Name");
 
         // Set ID
-        TextView ID_TextView = (TextView) findViewById(R.id.myID);
-        ID_TextView.setText(name);
+        mID_TextView = (TextView) findViewById(R.id.myID);
+        mID_TextView.setText(name);
     }
 
 }
