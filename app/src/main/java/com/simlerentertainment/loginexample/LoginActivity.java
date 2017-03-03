@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mFirstNameView = (EditText) findViewById(R.id.firstName);
         mLastNameView = (EditText) findViewById(R.id.lastName);
+        mZipCodeView = (EditText) findViewById(R.id.zipcode);
         mEmailView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -102,34 +103,67 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Reset errors.
         mFirstNameView.setError(null);
         mLastNameView.setError(null);
+        mZipCodeView.setError(null);
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
         String firstName = mFirstNameView.getText().toString();
         String lastName = mLastNameView.getText().toString();
+        String zipCode = mZipCodeView.getText().toString();
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
-        // Check if fields are empty
+        Log.d("LoginActivity", "Before");
+
+        // Check if First or Last Name are empty
         if (TextUtils.isEmpty(firstName)) {
             mFirstNameView.setError(getString(R.string.error_field_required));
             focusView = mFirstNameView;
             cancel = true;
         }
-
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+        else if (TextUtils.isEmpty(lastName)) {
+            mLastNameView.setError(getString(R.string.error_field_required));
             focusView = mLastNameView;
             cancel = true;
+        }
+
+        // Check for valid Zip Code
+        else if (TextUtils.isEmpty(zipCode)) {
+            mZipCodeView.setError(getString(R.string.error_field_required));
+            focusView = mZipCodeView;
+            cancel = true;
+        }
+        else if (zipCode.length() != 5) {
+            mZipCodeView.setError(getString(R.string.error_invalid_zipCode));
+            focusView = mZipCodeView;
+            cancel = true;
+        }
 
         // Check for a valid email address.
-        } else if (!isEmailValid(email)) {
+        else if (TextUtils.isEmpty(email)) {
+            mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
+            cancel = true;
+        }
+        else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
+            cancel = true;
+        }
+
+        // Check for a valid password.
+        else if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+        else if (password.length() < 6) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
             cancel = true;
         }
 
