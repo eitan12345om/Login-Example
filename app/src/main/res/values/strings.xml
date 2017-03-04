@@ -29,4 +29,8 @@
     <string name="error_invalid_zipCode">Must be 5 numbers</string>
     <string name="error_invalid_password">Must be at least 6 characters</string>
 
+    <!-- Strings for PayForward page -->
+    <string name="feedback">How did I do?</string>
+    <string name="basic_site_description">In this view you would see some profiles and the ability to start and respond to different requests and offers.</string>
+
 </resources>
