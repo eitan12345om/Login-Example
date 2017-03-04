@@ -117,8 +117,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        Log.d("LoginActivity", "Before");
-
         // Check if First or Last Name are empty
         if (TextUtils.isEmpty(firstName)) {
             mFirstNameView.setError(getString(R.string.error_field_required));
