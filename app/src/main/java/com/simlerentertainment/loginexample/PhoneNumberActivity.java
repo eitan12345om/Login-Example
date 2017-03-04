@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+/**
+ * This activity is the first step in signing up
+ * Users will also be able to access the terms and conditions
+ * from the activity.
+ */
 public class PhoneNumberActivity extends AppCompatActivity {
 
     private EditText mPhoneNumberView;
@@ -19,6 +25,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
 
         mPhoneNumberView = (EditText) findViewById(R.id.phoneNumber);
 
+        // Creates onClick Listener for Submit button
         Button mPhoneButton = (Button) findViewById(R.id.phone_button);
         mPhoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +35,10 @@ public class PhoneNumberActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Atempts to proceed to next activity. If it fails, there are
+     * errors in the form.
+     */
     private void attemptProceed() {
         mPhoneNumberView.setError(null);
 

@@ -9,6 +9,10 @@ import java.util.Calendar;
 
 /**
  * Created by Eitan on 3/3/2017.
+ * <p>
+ * This class creates a DatePickerDialog for user to pick a birthday
+ *
+ * @author Eitan Simler
  */
 
 public class DatePickerFragment extends DialogFragment {

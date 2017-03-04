@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * A login screen that offers login via email/password.
+ * A login screen that offers signup via several forms.
  */
 public class LoginActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             }
         });
 
+        // onClick Listener for submit
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -69,17 +70,26 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
         });
     }
 
+    /**
+     * Required for interface. Creates new instance of calendar
+     */
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         Calendar calendar = new GregorianCalendar(year, month, day);
         setDate(calendar);
     }
 
+    /**
+     * Sets date of calendar and sets field text
+     */
     private void setDate(final Calendar calendar) {
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG);
         ((EditText) findViewById(R.id.birthdayText)).setText(dateFormat.format(calendar.getTime()));
     }
 
+    /**
+     * Creates and shows instance of datePicker on button click
+     */
     public void datePicker(View view) {
         DatePickerFragment datePickerFragment = new DatePickerFragment();
         datePickerFragment.show(getFragmentManager(), "date");
@@ -175,6 +185,9 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
         }
     }
 
+    /**
+     * Checks if email is valid using regex
+     */
     private boolean isEmailValid(String email) {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();

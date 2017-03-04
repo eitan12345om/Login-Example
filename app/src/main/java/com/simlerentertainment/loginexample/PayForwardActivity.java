@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * This activity shows the basic site for the user
+ */
 public class PayForwardActivity extends AppCompatActivity {
 
     private Button mID_TextView;
@@ -17,6 +20,7 @@ public class PayForwardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_forward);
 
+        // Retrieve the name submitted by the user
         Intent intent = getIntent();
         String name = intent.getStringExtra("First Name");
 
@@ -25,6 +29,9 @@ public class PayForwardActivity extends AppCompatActivity {
         mID_TextView.setText(name);
     }
 
+    /**
+     * Creates AlertDialog for user to decide if they want to sign out
+     */
     public void onButtonClick(View view) {
         final AlertDialog alertDialog = new AlertDialog.Builder(PayForwardActivity.this).create();
         alertDialog.setTitle("Do you want to sign out?");
