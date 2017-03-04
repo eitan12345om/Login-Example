@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Sign Up Example</string>
-    <string name="welcome">Please answer the following</string>
+    <string name="title_activity_pay_forward">PayForward</string>
 
+    <!-- Strings related to phone number -->
+    <string name="welcome">Please answer the following</string>
     <string name="phone_number">What\'s your phone number?</string>
     <string name="prompt_phone_number">Phone Number</string>
     <string name="no_share">We will never publicly share your phone number. This is for
@@ -13,10 +15,12 @@
     <string name="prompt_first_name">First Name</string>
     <string name="prompt_last_name">Last Name</string>
     <string name="prompt_birthday">Birthday</string>
+    <string name="pick_birthday">Pick Date</string>
     <string name="prompt_zipcode">Zip Code</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
 
+    <!-- Strings for onSubmit -->
     <string name="action_sign_in">Submit</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_field_required">This field is required</string>
@@ -25,15 +29,4 @@
     <string name="error_invalid_zipCode">Must be 5 numbers</string>
     <string name="error_invalid_password">Must be at least 6 characters</string>
 
-    <!-- String array for Birthday -->
-    <!--TODO Finish this-->
-    <string-array name="months">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-    </string-array>
-    <string name="title_activity_pay_forward">PayForward</string>
 </resources>
