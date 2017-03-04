@@ -1,14 +1,11 @@
 package com.simlerentertainment.loginexample;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,8 +21,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static android.R.attr.fragment;
 
 /**
  * A login screen that offers login via email/password.
@@ -138,8 +133,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             mFirstNameView.setError(getString(R.string.error_field_required));
             focusView = mFirstNameView;
             cancel = true;
-        }
-        else if (TextUtils.isEmpty(lastName)) {
+        } else if (TextUtils.isEmpty(lastName)) {
             mLastNameView.setError(getString(R.string.error_field_required));
             focusView = mLastNameView;
             cancel = true;
@@ -157,8 +151,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             mZipCodeView.setError(getString(R.string.error_field_required));
             focusView = mZipCodeView;
             cancel = true;
-        }
-        else if (zipCode.length() != 5) {
+        } else if (zipCode.length() != 5) {
             mZipCodeView.setError(getString(R.string.error_invalid_zipCode));
             focusView = mZipCodeView;
             cancel = true;
@@ -169,8 +162,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        }
-        else if (!isEmailValid(email)) {
+        } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
@@ -181,8 +173,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             mPasswordView.setError(getString(R.string.error_field_required));
             focusView = mPasswordView;
             cancel = true;
-        }
-        else if (password.length() < 6) {
+        } else if (password.length() < 6) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -196,7 +187,7 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             // Go to PayForward Activity
             Intent intent = new Intent(getApplicationContext(), PayForwardActivity.class);
             // Send the name to PayForward Activity
-            intent.putExtra("Name", firstName);
+            intent.putExtra("First Name", firstName);
             startActivity(intent);
         }
     }

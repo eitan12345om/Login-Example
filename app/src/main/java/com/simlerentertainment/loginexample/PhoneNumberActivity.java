@@ -1,8 +1,8 @@
 package com.simlerentertainment.loginexample;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +40,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
             mPhoneNumberView.setError(getString(R.string.error_field_required));
             focusView = mPhoneNumberView;
             cancel = true;
-        }
-        else if (phoneNumber.length() < 10) {
+        } else if (phoneNumber.length() < 10) {
             mPhoneNumberView.setError(getString(R.string.error_invalid_phone));
             focusView = mPhoneNumberView;
             cancel = true;
