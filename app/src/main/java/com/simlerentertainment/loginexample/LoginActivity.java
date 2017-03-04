@@ -118,53 +118,27 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
+        String[] fields = new String[]{firstName, lastName, birthday, zipCode, email, password};
+        EditText[] views = new EditText[]{mFirstNameView, mLastNameView, mBirthdayView,
+                mZipCodeView, mEmailView, mPasswordView};
+
+
         boolean cancel = false;
         View focusView = null;
 
-        // Check if First or Last Name are empty
-        if (TextUtils.isEmpty(firstName)) {
-            mFirstNameView.setError(getString(R.string.error_field_required));
-            focusView = mFirstNameView;
-            cancel = true;
-        } else if (TextUtils.isEmpty(lastName)) {
-            mLastNameView.setError(getString(R.string.error_field_required));
-            focusView = mLastNameView;
-            cancel = true;
-        }
+        EditText result = checkAllEmpty(fields, views);
 
-        // Check if Birthday is empty
-        else if (TextUtils.isEmpty(birthday)) {
-            mBirthdayView.setError(getString(R.string.error_field_required));
-            focusView = mBirthdayView;
-            cancel = true;
-        }
-
-        // Check for valid Zip Code
-        else if (TextUtils.isEmpty(zipCode)) {
-            mZipCodeView.setError(getString(R.string.error_field_required));
-            focusView = mZipCodeView;
+        if (result != null) {
+            result.setError(getString(R.string.error_field_required));
+            focusView = result;
             cancel = true;
         } else if (zipCode.length() != 5) {
             mZipCodeView.setError(getString(R.string.error_invalid_zipCode));
             focusView = mZipCodeView;
             cancel = true;
-        }
-
-        // Check for a valid email address.
-        else if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
-            cancel = true;
-        }
-
-        // Check for a valid password.
-        else if (TextUtils.isEmpty(password)) {
-            mPasswordView.setError(getString(R.string.error_field_required));
-            focusView = mPasswordView;
             cancel = true;
         } else if (password.length() < 6) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
@@ -183,6 +157,18 @@ public class LoginActivity extends AppCompatActivity implements DatePickerDialog
             intent.putExtra("First Name", firstName);
             startActivity(intent);
         }
+    }
+
+    /**
+     * Checks every field to see if they are empty
+     */
+    private EditText checkAllEmpty(String[] fields, EditText[] views) {
+        for (int i = 0; i < fields.length; i++) {
+            if (TextUtils.isEmpty(fields[i])) {
+                return views[i];
+            }
+        }
+        return null;
     }
 
     /**
